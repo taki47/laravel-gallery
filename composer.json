@@ -1,0 +1,22 @@
+{
+    "name": "taki47/laravel-gallery",
+    "description": "Reusable Laravel image gallery package",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Taki47\\Gallery\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lajos Takacs",
+            "email": "info@takiwebneked.hu"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0|^11.0|^12.0|^13.0"
+    }
+}
