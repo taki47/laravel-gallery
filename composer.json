@@ -8,6 +8,13 @@
             "Taki47\\Gallery\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Taki47\\Gallery\\GalleryServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "Lajos Takacs",

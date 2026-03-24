@@ -3,22 +3,35 @@
 namespace Taki47\Gallery;
 
 use Illuminate\Support\ServiceProvider;
+use Taki47\Gallery\Console\InstallGalleryCommand;
 
 class GalleryServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         $this->loadViewsFrom(__DIR__."/../resources/views", "gallery");
-
-        $this->loadMigrationFrom(__DIR__."/../databases/migrations");
+        $this->loadMigrationsFrom(__DIR__."/../database/migrations");
+        $this->loadRoutesFrom(__DIR__."/../routes/web.php");
 
         $this->publishes([
             __DIR__."/../config/gallery.php" => config_path("gallery.php"),
-        ], "gallery-config.php");
+        ], "gallery-config");
+
+        $this->publishes([
+            __DIR__."/../resources/views" => resource_path("views/vendor/gallery"),
+        ], "gallery-views");
+
+        if ( $this->app->runningInConsole() )
+            $this->commands([
+                InstallGalleryCommand::class,
+            ]);
     }
 
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__."/../config/gallery.php",
+            "gallery"
+        );
     }
 }
