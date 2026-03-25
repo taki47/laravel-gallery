@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Taki47\Gallery\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

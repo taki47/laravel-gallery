@@ -26,6 +26,11 @@ class InstallGalleryCommand extends Command
             "--force" => true
         ]);
 
+        $this->call('vendor:publish', [
+            '--tag' => 'gallery-lang',
+            '--force' => true,
+        ]);
+
         $this->info("Laravel Gallery installed successfully");
         $this->line("Next step: php artisan migrate");
 

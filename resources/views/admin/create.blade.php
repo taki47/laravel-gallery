@@ -1,0 +1,27 @@
+@extends('gallery::admin.layout')
+
+@section('content')
+    <div class="top-bar">
+        <div>
+            <h1>{{ __('gallery::gallery.admin.create') }}</h1>
+        </div>
+    </div>
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul class="errors-list">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form action="{{ route('gallery.admin.store') }}" method="POST">
+        @csrf
+
+        @include('gallery::admin._form', [
+            'submitLabel' => __('gallery::gallery.admin.save')
+        ])
+    </form>
+@endsection
