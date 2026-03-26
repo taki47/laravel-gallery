@@ -26,6 +26,10 @@ class GalleryServiceProvider extends ServiceProvider
             __DIR__."/../lang" => lang_path("vendor/gallery"),
         ], "gallery-lang");
 
+        $this->publishes([
+            __DIR__."/../public" => public_path("vendor/laravel-gallery"),
+        ], "gallery-assets");
+
         if ( $this->app->runningInConsole() )
             $this->commands([
                 InstallGalleryCommand::class,

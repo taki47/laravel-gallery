@@ -7,7 +7,11 @@ return [
         'gallery_deleted' => 'Gallery deleted successfully.',
         'gallery_image_uploaded' => "Image(s) uploaded successfully.",
         'gallery_image_updated' => "Image updated successfully.",
+        "gallery_image_update_error" => "Image save error",
         "gallery_image_deleted" => "Image deleted successfully",
+        "gallery_image_delete_error" => "Image delete error",
+        "gallery_image_sort_updated" => "Image order updated successfully.",
+        'gallery_image_sort_update_error' => 'Image order update error.',
     ],
 
     'validation' => [
@@ -45,9 +49,17 @@ return [
         'public_no' => 'No',
         'confirm_delete' => 'Are you sure?',
         
+        "upload_title" => "Upload image(s)",
+        "upload_description" => "Drag image(s) here or browse files",
         "manage_image" => "Images manage",
         "image" => "Image",
         "caption" => "Caption",
         "alt" => "Alt",
+        "loading" => "Loading...",
+        "save_order" => "Save order...",
+        "drag_to_sort" => "Drag to reorder",
+        "confirm_delete" => "Are you sure you want to delete this image?",
+        "cancel" => "Cancel",
+        "confirm" => "Confirm",
     ],
 ];

@@ -11,7 +11,7 @@ class SortGalleryImageRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,9 +22,9 @@ class SortGalleryImageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "images" => ["required", "array"],
-            "images.*.id" => ["required", "integer", "exists:gallery_images,id"],
-            "images.*.sort_order" => ["required", "integer", "min:0"],
+            "items" => ["required", "array"],
+            "items.*.id" => ["required", "integer", "exists:gallery_images,id"],
+            "items.*.sort_order" => ["required", "integer", "min:0"],
         ];
     }
 }

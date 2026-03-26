@@ -3,13 +3,21 @@
 namespace Taki47\Gallery\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Taki47\Gallery\Http\Requests\StoreGalleryRequest;
 use Taki47\Gallery\Http\Requests\UpdateGalleryRequest;
 use Taki47\Gallery\Models\Gallery;
+use Taki47\Gallery\Services\ImageUploadService;
 
 class GalleryAdminController extends Controller
 {
+    public function __construct(
+        private ImageUploadService $image_upload_service
+    )
+    {}
+
     public function index()
     {
         $galleries = Gallery::query()
@@ -65,7 +73,24 @@ class GalleryAdminController extends Controller
 
     public function destroy(Gallery $gallery)
     {
-        $gallery->delete();
+        $gallerySlug = $gallery->slug;
+        $disk = config('gallery.disk');
+        $directory = config('gallery.upload_path') . '/' . $gallerySlug;
+
+        DB::transaction(function () use ($gallery, $disk) {
+            foreach ($gallery->images as $image) {
+                $this->image_upload_service->delete(
+                    $image->image_path,
+                    $disk
+                );
+
+                $image->delete();
+            }
+
+            $gallery->delete();
+        });
+
+        Storage::disk($disk)->deleteDirectory($directory);
 
         return redirect()
                 ->route("gallery.admin.index")

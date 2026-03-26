@@ -44,7 +44,7 @@
             @forelse($galleries as $gallery)
                 <tr>
                     <td>
-                        <a href="{{ route('gallery.admin.images.index', $gallery) }}" class="btn btn-sm btn-primary">
+                        <a href="{{ route('gallery.admin.images.page', $gallery) }}" class="btn btn-sm btn-primary">
                             Képek kezelése
                         </a>
                     </td>

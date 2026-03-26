@@ -7,7 +7,11 @@ return [
         'gallery_deleted' => 'A galéria törölve lett.',
         'gallery_image_uploaded' => "A kép(ek) sikeresen feltöltve.",
         'gallery_image_updated' => "A kép sikeresen módosítva.",
+        "gallery_image_update_error" => "Hiba történt a kép mentése során",
         "gallery_image_deleted" => "A kép sikeresen törölve.",
+        "gallery_image_delete_error" => "Hiba történt a kép törlése során.",
+        'gallery_image_sort_updated' => 'A képek sorrendje sikeresen mentve.',
+        'gallery_image_sort_update_error' => 'A képek sorrendjének mentése sikertelen.',
     ],
 
     'validation' => [
@@ -15,6 +19,7 @@ return [
         'title_unique' => 'Ez a galéria cím már létezik. Adj meg egy másik címet.',
         'title_max' => 'A cím legfeljebb :max karakter lehet.',
         'event_date_date' => 'Az esemény dátuma nem megfelelő formátumú.',
+        "gallery_image_update_error" => "A kép mentése nem sikerült",
     ],
 
     'admin' => [
@@ -44,9 +49,17 @@ return [
         'public_no' => 'Nem',
         'confirm_delete' => 'Biztosan törlöd ezt a galériát?',
 
+        "upload_title" => "Kép(ek) feltöltése",
+        "upload_description" => "Húzd ide a képeket, vagy tallózd be őket.",
         "manage_image" => "Képek kezelése",
         "image" => "Kép",
         "caption" => "Felirat",
         "alt" => "Alt",
+        "loading" => "Betöltés...",
+        "save_order" => "Sorrend mentése...",
+        "drag_to_sort" => "Húzd a rendezéshez",
+        "confirm_delete" => "Biztosan törlöd ezt a képet?",
+        "cancel" => "Mégse",
+        "confirm" => "Mehet",
     ],
 ];
