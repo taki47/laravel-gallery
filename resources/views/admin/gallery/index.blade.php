@@ -31,6 +31,7 @@
     <table>
         <thead>
             <tr>
+                <th></th>
                 <th>{{ __('gallery::gallery.admin.id') }}</th>
                 <th>{{ __('gallery::gallery.admin.gallery_title') }}</th>
                 <th>{{ __('gallery::gallery.admin.slug') }}</th>
@@ -42,6 +43,11 @@
         <tbody>
             @forelse($galleries as $gallery)
                 <tr>
+                    <td>
+                        <a href="{{ route('gallery.admin.images.index', $gallery) }}" class="btn btn-sm btn-primary">
+                            Képek kezelése
+                        </a>
+                    </td>
                     <td>{{ $gallery->id }}</td>
                     <td>{{ $gallery->title }}</td>
                     <td>{{ $gallery->slug }}</td>

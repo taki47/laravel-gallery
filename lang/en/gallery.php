@@ -5,6 +5,9 @@ return [
         'gallery_created' => 'Gallery created successfully.',
         'gallery_updated' => 'Gallery updated successfully.',
         'gallery_deleted' => 'Gallery deleted successfully.',
+        'gallery_image_uploaded' => "Image(s) uploaded successfully.",
+        'gallery_image_updated' => "Image updated successfully.",
+        "gallery_image_deleted" => "Image deleted successfully",
     ],
 
     'validation' => [
@@ -34,8 +37,17 @@ return [
         'delete_button' => 'Delete',
         'create_button' => 'New gallery',
         'update_button' => 'Update',
+        'upload_button' => "Upload",
+        "save_button" => "Save",
+        "delete_button" => "Delete",
+        "order_save_button" => "Save order",
         'public_yes' => 'Yes',
         'public_no' => 'No',
         'confirm_delete' => 'Are you sure?',
+        
+        "manage_image" => "Images manage",
+        "image" => "Image",
+        "caption" => "Caption",
+        "alt" => "Alt",
     ],
 ];

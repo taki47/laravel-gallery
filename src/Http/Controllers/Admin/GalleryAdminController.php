@@ -1,6 +1,6 @@
 <?php
 
-namespace Taki47\Gallery\Http\Controllers;
+namespace Taki47\Gallery\Http\Controllers\Admin;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
@@ -16,12 +16,12 @@ class GalleryAdminController extends Controller
                         ->latest()
                         ->paginate(config("gallery.per_page"));
 
-        return view("gallery::admin.index", compact("galleries"));
+        return view("gallery::admin.gallery.index", compact("galleries"));
     }
 
     public function create()
     {
-        return view("gallery::admin.create");
+        return view("gallery::admin.gallery.create");
     }
 
     public function store(StoreGalleryRequest $request)
@@ -43,7 +43,7 @@ class GalleryAdminController extends Controller
 
     public function edit(Gallery $gallery)
     {
-        return view("gallery::admin.edit", compact("gallery"));
+        return view("gallery::admin.gallery.edit", compact("gallery"));
     }
 
     public function update(UpdateGalleryRequest $request, Gallery $gallery)

@@ -5,6 +5,9 @@ return [
         'gallery_created' => 'A galéria létrejött.',
         'gallery_updated' => 'A galéria frissítve lett.',
         'gallery_deleted' => 'A galéria törölve lett.',
+        'gallery_image_uploaded' => "A kép(ek) sikeresen feltöltve.",
+        'gallery_image_updated' => "A kép sikeresen módosítva.",
+        "gallery_image_deleted" => "A kép sikeresen törölve.",
     ],
 
     'validation' => [
@@ -28,15 +31,22 @@ return [
         'gallery_title' => 'Cím',
         'slug' => 'Slug',
         'description' => 'Leírás',
-        'event_date' => 'Esemény dátuma',
         'created_at' => 'Létrehozva',
         'no_items' => 'Még nincs galéria.',
         'edit_button' => 'Szerkesztés',
         'delete_button' => 'Törlés',
         'create_button' => 'Új galéria',
         'update_button' => 'Frissítés',
+        'upload_button' => "Feltöltés",
+        "order_save_button" => "Sorrend mentése",
+        'save_button' => 'Mentés',
         'public_yes' => 'Igen',
         'public_no' => 'Nem',
         'confirm_delete' => 'Biztosan törlöd ezt a galériát?',
+
+        "manage_image" => "Képek kezelése",
+        "image" => "Kép",
+        "caption" => "Felirat",
+        "alt" => "Alt",
     ],
 ];

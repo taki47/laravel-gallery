@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Taki47\Gallery\Http\Controllers\Admin\GalleryAdminController;
+use Taki47\Gallery\Http\Controllers\Admin\GalleryImageAdminController;
 use Taki47\Gallery\Http\Controllers\GalleryController;
-use Taki47\Gallery\Http\Controllers\GalleryAdminController;
 
 Route::prefix(config("gallery.route_prefix"))
     ->middleware(config("gallery.middleware"))
@@ -21,4 +22,9 @@ Route::prefix(config("gallery.admin_prefix"))
         Route::put("/{gallery}/edit", [GalleryAdminController::class, "update"])->name("gallery.admin.update");
         Route::delete("/{gallery}", [GalleryAdminController::class, "destroy"])->name("gallery.admin.destroy");
 
+        Route::get('{gallery}/images', [GalleryImageAdminController::class, 'index'])->name('gallery.admin.images.index');
+        Route::post('{gallery}/images', [GalleryImageAdminController::class, 'store'])->name('gallery.admin.images.store');
+        Route::put('{gallery}/images/{image}', [GalleryImageAdminController::class, 'update'])->name('gallery.admin.images.update');
+        Route::delete('{gallery}/images/{image}', [GalleryImageAdminController::class, 'destroy'])->name('gallery.admin.images.destroy');
+        Route::post('{gallery}/images/sort', [GalleryImageAdminController::class, 'sort'])->name('gallery.admin.images.sort');
     });
