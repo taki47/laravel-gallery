@@ -30,7 +30,7 @@
         </div>
 
         @if($gallery->images->isEmpty())
-            <p>{{ __("gallery::gallery.frontend.no_image") }}</p>
+            <p>{{ __("gallery::gallery.frontend.empty.images") }}</p>
         @else
             <div class="row g-4">
                 @foreach($gallery->images as $image)
