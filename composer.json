@@ -36,6 +36,18 @@
     "require": {
         "php": "^8.2",
         "illuminate/support": "^10.0|^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Taki47\\Gallery\\Tests\\": "test/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
     
 }
