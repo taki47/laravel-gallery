@@ -11,6 +11,7 @@
 @extends('gallery::layout')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('vendor/laravel-gallery/css/gallery.css') }}">
     <div class="container py-4 py-md-5">
         <div class="mb-4">
             <a href="{{ route('gallery.index') }}" class="btn btn-outline-secondary btn-sm">

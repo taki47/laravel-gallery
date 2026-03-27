@@ -10,6 +10,7 @@
 @extends('gallery::layout')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('vendor/laravel-gallery/css/gallery.css') }}">
     <div class="container py-4">
         <h1 class="mb-4">{{ __("gallery::gallery.frontend.title") }}</h1>
 

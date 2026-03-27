@@ -11,6 +11,7 @@
 @extends('gallery::admin.layout')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('vendor/laravel-gallery/css/gallery-admin.css') }}">
     <div class="top-bar">
         <div>
             <h1>{{ __('gallery::gallery.admin.titles.index') }}</h1>
@@ -37,7 +38,7 @@
         </div>
     @endif
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th></th>

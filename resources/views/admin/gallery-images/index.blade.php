@@ -11,6 +11,7 @@
 @extends('gallery::admin.layout')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('vendor/laravel-gallery/css/gallery-admin.css') }}">
     <script>
         window.GalleryLang = @json($translations);
     </script>
