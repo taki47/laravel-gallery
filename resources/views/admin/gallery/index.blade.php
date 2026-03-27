@@ -70,7 +70,7 @@
                             >
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">
+                                <button type="button" class="btn btn-danger btn-delete">
                                     {{ __('gallery::gallery.admin.buttons.delete') }}
                                 </button>
                             </form>
@@ -88,4 +88,55 @@
     <div style="margin-top: 20px;">
         {{ $galleries->links() }}
     </div>
+
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <p>{{ __('gallery::gallery.admin.confirm.delete_gallery') }}</p>
+
+            <div class="modal-actions">
+                <button id="confirmDelete" class="btn btn-danger">
+                    {{ __('gallery::gallery.admin.buttons.delete') }}
+                </button>
+
+                <button id="cancelDelete" class="btn btn-secondary">
+                    {{ __('gallery::gallery.admin.buttons.cancel') }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const modal = document.getElementById("deleteModal");
+            const confirmBtn = document.getElementById("confirmDelete");
+            const cancelBtn = document.getElementById("cancelDelete");
+
+            let currentForm = null;
+
+            document.querySelectorAll(".btn-delete").forEach(btn => {
+
+                btn.addEventListener("click", function () {
+
+                    currentForm = this.closest("form");
+                    modal.classList.add("active");
+
+                });
+
+            });
+
+            cancelBtn.addEventListener("click", () => {
+                modal.classList.remove("active");
+            });
+
+            confirmBtn.addEventListener("click", () => {
+
+                if (currentForm) {
+                    currentForm.submit();
+                }
+
+            });
+
+        });
+        </script>
 @endsection
