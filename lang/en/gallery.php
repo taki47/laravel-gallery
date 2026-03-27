@@ -1,72 +1,112 @@
 <?php
 
 return [
+
     'messages' => [
-        'gallery_created' => 'Gallery created successfully.',
-        'gallery_updated' => 'Gallery updated successfully.',
-        'gallery_deleted' => 'Gallery deleted successfully.',
-        'gallery_image_uploaded' => "Image(s) uploaded successfully.",
-        'gallery_image_updated' => "Image updated successfully.",
-        "gallery_image_update_error" => "Image save error",
-        "gallery_image_deleted" => "Image deleted successfully",
-        "gallery_image_delete_error" => "Image delete error",
-        "gallery_image_sort_updated" => "Image order updated successfully.",
-        'gallery_image_sort_update_error' => 'Image order update error.',
+        'gallery' => [
+            'created' => 'Gallery created successfully.',
+            'updated' => 'Gallery updated successfully.',
+            'deleted' => 'Gallery deleted successfully.',
+        ],
+
+        'image' => [
+            'uploaded' => 'Images uploaded successfully.',
+            'updated' => 'Image updated successfully.',
+            'deleted' => 'Image deleted successfully.',
+            'update_error' => 'An error occurred while updating the image.',
+            'delete_error' => 'An error occurred while deleting the image.',
+        ],
+
+        'sort' => [
+            'updated' => 'Image order updated successfully.',
+            'error' => 'Failed to update image order.',
+        ],
     ],
 
     'validation' => [
-        'title_required' => 'The title field is required.',
-        'title_unique' => 'This gallery title already exists. Please choose another one.',
-        'title_max' => 'The title may not be greater than :max characters.',
-        'event_date_date' => 'The event date is not a valid date.',
+        'gallery' => [
+            'title_required' => 'The title field is required.',
+            'title_unique' => 'This gallery title already exists. Please choose another one.',
+            'title_max' => 'The title may not be greater than :max characters.',
+            'event_date_date' => 'The event date is not a valid date.',
+        ],
+
+        'image' => [
+            'update_error' => 'Failed to save the image.',
+        ],
     ],
 
     'frontend' => [
-        'title' => "Gallery",
-        'back' => "Return to galleries",
-        "no_image" => "There are no images in this gallery yet.",
-        "no_galleries" => "There are no galleries available at the moment.",
-        "open_gallery" => "Open gallery",
+        'title' => 'Gallery',
+        'back' => 'Back to galleries',
+
+        'empty' => [
+            'galleries' => 'No galleries are currently available.',
+            'images' => 'There are no images in this gallery yet.',
+        ],
+
+        'actions' => [
+            'open_gallery' => 'Open gallery',
+        ],
     ],
 
     'admin' => [
-        'title' => 'Manage galleries',
-        'create' => 'Create new gallery',
-        'edit' => 'Edit gallery',
-        'save' => 'Save',
-        'delete' => 'Delete',
-        'public' => 'Public',
-        'list' => 'List gallery',
-        'back' => 'Back',
-        'actions' => 'Actions',
-        'id' => '#',
-        'gallery_title' => 'Title',
-        'slug' => 'Slug',
-        'description' => 'Description',
-        'created_at' => 'Created At',
-        'no_items' => 'No items',
-        'edit_button' => 'Edit',
-        'delete_button' => 'Delete',
-        'create_button' => 'New gallery',
-        'update_button' => 'Update',
-        'upload_button' => "Upload",
-        "save_button" => "Save",
-        "delete_button" => "Delete",
-        "order_save_button" => "Save order",
-        'public_yes' => 'Yes',
-        'public_no' => 'No',
-        'confirm_delete' => 'Are you sure?',
-        "upload_title" => "Upload image(s)",
-        "upload_description" => "Drag image(s) here or browse files",
-        "manage_image" => "Images manage",
-        "image" => "Image",
-        "caption" => "Caption",
-        "alt" => "Alt",
-        "loading" => "Loading...",
-        "save_order" => "Save order...",
-        "drag_to_sort" => "Drag to reorder",
-        "confirm_delete" => "Are you sure you want to delete this image?",
-        "cancel" => "Cancel",
-        "confirm" => "Confirm",
+
+        'titles' => [
+            'index' => 'Manage galleries',
+            'create' => 'Create new gallery',
+            'edit' => 'Edit gallery',
+            'upload' => 'Upload image(s)',
+            'manage_images' => 'Manage images',
+        ],
+
+        'fields' => [
+            'id' => 'ID',
+            'title' => 'Title',
+            'slug' => 'Slug',
+            'description' => 'Description',
+            'image' => 'Image',
+            'caption' => 'Caption',
+            'alt' => 'Alt',
+            'created_at' => 'Created at',
+            'public' => 'Public',
+        ],
+
+        'buttons' => [
+            'create' => 'Create gallery',
+            'back' => 'Back',
+            'save' => 'Save',
+            'update' => 'Update',
+            'delete' => 'Delete',
+            'edit' => 'Edit',
+            'upload' => 'Upload',
+            'save_order' => 'Save order',
+            'cancel' => 'Cancel',
+            'confirm' => 'Confirm',
+            'manage_images' => 'Manage images'
+        ],
+
+        'status' => [
+            'public_yes' => 'Yes',
+            'public_no' => 'No',
+        ],
+
+        'messages' => [
+            'loading' => 'Loading...',
+            'drag_to_sort' => 'Drag to sort',
+            'save_order' => 'Saving order...',
+            'deleting' => 'Deleting...',
+            'upload_description' => 'Drag images here or browse to upload.',
+        ],
+
+        'confirm' => [
+            'delete_gallery' => 'Are you sure you want to delete this gallery?',
+            'delete_image' => 'Are you sure you want to delete this image?',
+        ],
+
+        'empty' => [
+            'galleries' => 'No galleries yet.',
+        ],
     ],
+
 ];

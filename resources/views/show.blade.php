@@ -32,6 +32,7 @@
                             class="glightbox gallery-image-link"
                             data-gallery="gallery-{{ $gallery->id }}"
                             data-title="{{ e($caption) }}"
+                            data-label="{{ __('gallery::gallery.frontend.actions.open_gallery') }}"
                             data-description="">
                                 <img
                                     src="{{ $imageUrl }}"

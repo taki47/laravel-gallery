@@ -3,7 +3,7 @@
 @section('content')
     <div class="top-bar">
         <div>
-            <h1>{{ __('gallery::gallery.admin.create') }}</h1>
+            <h1>{{ __('gallery::gallery.admin.titles.create') }}</h1>
         </div>
     </div>
 
@@ -20,8 +20,8 @@
     <form action="{{ route('gallery.admin.store') }}" method="POST">
         @csrf
 
-        @include('gallery::admin._form', [
-            'submitLabel' => __('gallery::gallery.admin.save')
+        @include('gallery::admin.gallery._form', [
+            'submitLabel' => __('gallery::gallery.admin.buttons.save')
         ])
     </form>
 @endsection

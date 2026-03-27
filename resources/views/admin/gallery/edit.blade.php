@@ -3,7 +3,7 @@
 @section('content')
     <div class="top-bar">
         <div>
-            <h1>{{ __('gallery::gallery.admin.edit') }}</h1>
+            <h1>{{ __('gallery::gallery.admin.titles.edit') }}</h1>
             <div class="muted">{{ $gallery->title }}</div>
         </div>
     </div>
@@ -22,9 +22,9 @@
         @csrf
         @method('PUT')
 
-        @include('gallery::admin._form', [
+        @include('gallery::admin.gallery._form', [
             'gallery' => $gallery,
-            'submitLabel' => __('gallery::gallery.admin.update_button')
+            'submitLabel' => __('gallery::gallery.admin.buttons.update')
         ])
     </form>
 @endsection

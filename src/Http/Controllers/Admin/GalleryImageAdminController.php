@@ -93,7 +93,7 @@ class GalleryImageAdminController extends Controller
         ]);
 
         return response()->json([
-            "message" => __('gallery::gallery.messages.gallery_image_updated'),
+            "message" => __('gallery::gallery.messages.image.updated'),
         ]);
     }
 
@@ -113,7 +113,7 @@ class GalleryImageAdminController extends Controller
         $image->delete();
 
         return response()->json([
-            'message' => __('gallery::gallery.messages.gallery_image_deleted'),
+            'message' => __('gallery::gallery.messages.image.deleted'),
         ]);
     }
 
@@ -133,7 +133,7 @@ class GalleryImageAdminController extends Controller
         }
 
         return response()->json([
-            "message" => __('gallery::gallery.messages.gallery_image_sort_updated'),
+            "message" => __('gallery::gallery.messages.sort.updated'),
         ]);
     }
 }

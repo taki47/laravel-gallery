@@ -5,7 +5,7 @@
         <h1 class="mb-4">{{ __("gallery::gallery.frontend.title") }}</h1>
 
         @if($galleries->isEmpty())
-            <p>{{ __("gallery::gallery.frontend.no_galleries") }}</p>
+            <p>{{ __("gallery::gallery.frontend.empty.galleries") }}</p>
         @else
             <div class="row">
                 @foreach($galleries as $gallery)
@@ -32,7 +32,7 @@
                                 @endif
 
                                 <a href="{{ route('gallery.show', $gallery->slug) }}" class="btn btn-primary mt-auto">
-                                    {{ __("gallery::gallery.frontend.open_gallery") }}
+                                    {{ __("gallery::gallery.frontend.actions.open_gallery") }}
                                 </a>
                             </div>
                         </div>

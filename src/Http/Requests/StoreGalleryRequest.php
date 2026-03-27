@@ -31,10 +31,10 @@ class StoreGalleryRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.required' => __('gallery::gallery.validation.title_required'),
-            'title.unique' => __('gallery::gallery.validation.title_unique'),
-            'title.max' => __('gallery::gallery.validation.title_max'),
-            'event_date.date' => __('gallery::gallery.validation.event_date_date'),
+            'title.required' => __('gallery::gallery.validation.gallery.title_required'),
+            'title.unique' => __('gallery::gallery.validation.gallery.title_unique'),
+            'title.max' => __('gallery::gallery.validation.gallery.title_max'),
+            'event_date.date' => __('gallery::gallery.validation.gallery.event_date_date'),
         ];
     }
 }

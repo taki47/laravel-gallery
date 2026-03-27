@@ -46,7 +46,7 @@ class GalleryAdminController extends Controller
 
         return redirect()
                 ->route("gallery.admin.index")
-                ->with("success", __('gallery::gallery.messages.gallery_created'));
+                ->with("success", __('gallery::gallery.messages.gallery.created'));
     }
 
     public function edit(Gallery $gallery)
@@ -68,7 +68,7 @@ class GalleryAdminController extends Controller
 
         return redirect()
                 ->route("gallery.admin.index")
-                ->with("success", __('gallery::gallery.messages.gallery_updated'));
+                ->with("success", __('gallery::gallery.messages.gallery.updated'));
     }
 
     public function destroy(Gallery $gallery)
@@ -94,6 +94,6 @@ class GalleryAdminController extends Controller
 
         return redirect()
                 ->route("gallery.admin.index")
-                ->with("success", __('gallery::gallery.messages.gallery_deleted'));
+                ->with("success", __('gallery::gallery.messages.gallery.deleted'));
     }
 }

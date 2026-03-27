@@ -1,6 +1,6 @@
 <div class="form-group">
     <label class="form-label" for="title">
-        {{ __('gallery::gallery.admin.gallery_title') }}
+        {{ __('gallery::gallery.admin.fields.title') }}
     </label>
     <input
         type="text"
@@ -17,7 +17,7 @@
 
 <div class="form-group">
     <label class="form-label" for="description">
-        {{ __('gallery::gallery.admin.description') }}
+        {{ __('gallery::gallery.admin.fields.description') }}
     </label>
     <textarea
         id="description"
@@ -38,7 +38,7 @@
             value="1"
             {{ old('is_public', $gallery->is_public ?? true) ? 'checked' : '' }}
         >
-        <span>{{ __('gallery::gallery.admin.public') }}</span>
+        <span>{{ __('gallery::gallery.admin.fields.public') }}</span>
     </label>
     @error('is_public')
         <div class="muted" style="color:#b42318; margin-top:6px;">{{ $message }}</div>
@@ -51,6 +51,6 @@
     </button>
 
     <a href="{{ route('gallery.admin.index') }}" class="btn">
-        {{ __('gallery::gallery.admin.back') }}
+        {{ __('gallery::gallery.admin.buttons.back') }}
     </a>
 </div>

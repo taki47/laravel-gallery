@@ -201,13 +201,13 @@
                     const result = await response.json();
 
                     if (!response.ok) {
-                        throw new Error(this.lang.messages.gallery_image_sort_update_error);
+                        throw new Error(this.lang.messages.sort.error);
                     }
 
-                    this.showToast(result.message || this.lang.messages.gallery_image_update_error);
+                    this.showToast(result.message || this.lang.messages.sort.error);
                 } catch (error) {
                     console.error(error);
-                    errorTxt = error.message || this.lang.messages.gallery_image_update_error;
+                    errorTxt = error.message || this.lang.messages.sort.error;
                     this.showToast(errorTxt, 'error');
                 } finally {
                     this.savingOrder = false;
@@ -245,13 +245,13 @@
                     const result = await response.json();
 
                     if (!response.ok) {
-                        throw new Error(this.lang.messages.gallery_image_update_error);
+                        throw new Error(this.lang.messages.image.update_error);
                     }
 
-                    this.showToast(result.message || this.lang.messages.gallery_image_update_error);
+                    this.showToast(result.message || this.lang.messages.image.update_error);
                 } catch (error) {
                     console.error(error);
-                    errorTxt = error.message || this.lang.messages.gallery_image_update_error;
+                    errorTxt = error.message || this.lang.messages.image.update_error;
                     this.showToast(errorTxt, 'error');
                 } finally {
                     image.isSaving = false;
@@ -259,7 +259,7 @@
             },
 
             deleteImage(image) {
-                this.confirmAction(this.lang.admin.confirm_delete, () => {
+                this.confirmAction(this.lang.admin.confirm.delete_image, () => {
                     this.preformDelete(image);
                 });
             },
@@ -280,14 +280,14 @@
                     const result = await response.json();
 
                     if (!response.ok) {
-                        throw new Error(this.lang.message.gallery_image_delete_error);
+                        throw new Error(this.lang.messages.image.delete_error);
                     }
 
                     this.images = this.images.filter(item => item.id !== image.id);
-                    this.showToast(result.message || this.lang.message.gallery_image_delete_error);
+                    this.showToast(result.message || this.lang.messages.image.delete_error);
                 } catch (error) {
                     console.error(error);
-                    image.error = error.message || this.lang.message.gallery_image_delete_error;
+                    image.error = error.message || this.lang.messages.image.delet_error;
                     this.showToast(image.error, 'error');
                 } finally {
                     image.isDeleting = false;
@@ -310,12 +310,12 @@
 
                                 <button class="modal-cancel"
                                         @click="confirmCancel">
-                                    {{ lang.admin.cancel }}
+                                    {{ lang.admin.buttons.cancel }}
                                 </button>
 
                                 <button class="modal-confirm"
                                         @click="confirmOk">
-                                    {{ lang.admin.confirm }}
+                                    {{ lang.admin.buttons.confirm }}
                                 </button>
 
                             </div>
@@ -334,20 +334,19 @@
                 <div class="gallery-top-bar">
                     <button class="gallery-back-button"
                             @click="goBack">
-                        ← {{ lang.admin.back }}
+                        ← {{ lang.admin.buttons.back }}
                     </button>
                 </div>
 
                 <div class="gallery-upload-section">
-                    <h2 class="gallery-section-title">{{ lang.admin.upload_title }}</h2>
-                    <p class="gallery-section-description">{{ lang.admin.upload_description }}</p>
+                    <h2 class="gallery-section-title">{{ lang.admin.titles.upload }}</h2>
                     <div id="uppy-dashboard"></div>
                 </div>
 
                 <div class="gallery-manager-toolbar">
-                    <strong>{{ lang.admin.manage_image }}</strong>
-                    <span v-if="loading">{{ lang.admin.loading }}</span>
-                    <span v-if="savingOrder">{{ lang.admin.save_order }}</span>
+                    <strong>{{ lang.admin.titles.manage_images }}</strong>
+                    <span v-if="loading">{{ lang.admin.messages.loading }}</span>
+                    <span v-if="savingOrder">{{ lang.admin.messages.save_order }}</span>
                 </div>
 
                 <div ref="imagesGrid" class="gallery-images-grid">
@@ -357,13 +356,13 @@
                          :data-id="image.id">
 
                         <div class="gallery-image-header">
-                            <span class="drag-handle" :title="lang.admin.drag_to_sort">☰</span>
+                            <span class="drag-handle" :title="lang.admin.messages.drag_to_sort">☰</span>
 
                             <button type="button"
                                     class="delete-button"
                                     @click="deleteImage(image)"
                                     :disabled="image.isDeleting">
-                                {{ image.isDeleting ? lang.admin.delete + '...' : lang.admin.delete }}
+                                {{ image.isDeleting ? lang.admin.messages.deleting + '...' : lang.admin.buttons.delete }}
                             </button>
                         </div>
 
@@ -373,14 +372,14 @@
 
                         <div class="gallery-image-fields">
                             <label>
-                                {{ lang.admin.caption }}
+                                {{ lang.admin.fields.caption }}
                                 <input type="text"
                                        v-model="image.caption"
                                        @input="queueSave(image)">
                             </label>
 
                             <label>
-                                {{ lang.admin.alt }}
+                                {{ lang.admin.fields.alt }}
                                 <input type="text"
                                        v-model="image.alt"
                                        @input="queueSave(image)">
@@ -388,7 +387,7 @@
                         </div>
 
                         <div class="gallery-image-footer">
-                            <span v-if="image.isSaving">{{ lang.admin.save }}...</span>
+                            <span v-if="image.isSaving">{{ lang.admin.buttons.save }}...</span>
                             <span v-else-if="image.error" class="error-text">{{ image.error }}</span>
                         </div>
                     </div>

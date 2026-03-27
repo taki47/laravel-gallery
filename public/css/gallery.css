@@ -71,7 +71,7 @@
 }
 
 .gallery-image-link::after {
-    content: "🔍 Megnyitás";
+    content: attr(data-label);
     position: absolute;
     inset: 0;
     display: flex;
