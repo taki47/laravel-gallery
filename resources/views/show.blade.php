@@ -12,6 +12,8 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('vendor/laravel-gallery/css/gallery.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+
     <div class="container py-4 py-md-5">
         <div class="mb-4">
             <a href="{{ route('gallery.index') }}" class="btn btn-outline-secondary btn-sm">
@@ -66,6 +68,7 @@
 @endsection
 
 @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             GLightbox({
