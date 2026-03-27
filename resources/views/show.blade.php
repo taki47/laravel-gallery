@@ -1,21 +1,68 @@
-<h1>{{ $gallery->title }}</h1>
+@extends('gallery::layout')
 
-@if($gallery->event_date)
-    <div>{{ $gallery->event_date->format('Y.m.d.') }}</div>
-@endif
+@section('content')
+    <div class="container py-4 py-md-5">
+        <div class="mb-4">
+            <a href="{{ route('gallery.index') }}" class="btn btn-outline-secondary btn-sm">
+                ← {{ __("gallery::gallery.frontend.back") }}
+            </a>
+        </div>
 
-@if($gallery->description)
-    <p>{{ $gallery->description }}</p>
-@endif
+        <div class="mb-4">
+            <h1 class="mb-2">{{ $gallery->title }}</h1>
 
-@foreach($gallery->images as $image)
-    <div style="margin-bottom: 20px;">
-        <img src="{{ \Illuminate\Support\Facades\Storage::disk(config('gallery.disk', 'public'))->url($image->image_path) }}"
-             alt="{{ $image->alt ?? $image->caption ?? $gallery->title }}"
-             style="max-width: 300px; height: auto;">
+            @if($gallery->description)
+                <p class="text-muted mb-0">{{ $gallery->description }}</p>
+            @endif
+        </div>
 
-        @if($image->caption)
-            <div>{{ $image->caption }}</div>
+        @if($gallery->images->isEmpty())
+            <p>{{ __("gallery::gallery.frontend.no_image") }}</p>
+        @else
+            <div class="row g-4">
+                @foreach($gallery->images as $image)
+                    @php
+                        $imageUrl = Storage::url($image->image_path);
+                        $caption = $image->caption ?: $gallery->title;
+                    @endphp
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="gallery-card">
+                            <a href="{{ $imageUrl }}"
+                            class="glightbox gallery-image-link"
+                            data-gallery="gallery-{{ $gallery->id }}"
+                            data-title="{{ e($caption) }}"
+                            data-description="">
+                                <img
+                                    src="{{ $imageUrl }}"
+                                    alt="{{ $image->alt ?: $gallery->title }}"
+                                    class="gallery-image"
+                                >
+                            </a>
+
+                            <div class="gallery-meta">
+                                @if($image->caption)
+                                    <div class="gallery-caption">{{ $image->caption }}</div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         @endif
     </div>
-@endforeach
+@endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            GLightbox({
+                selector: '.glightbox',
+                touchNavigation: true,
+                loop: true,
+                zoomable: true,
+                closeButton: true
+            });
+        });
+    </script>
+@endpush

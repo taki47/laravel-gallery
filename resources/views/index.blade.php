@@ -1,23 +1,54 @@
-<h1>Galériák</h1>
+@extends('gallery::layout')
 
-@foreach($galleries as $gallery)
-    <div style="margin-bottom: 20px;">
-        <h2>
-            <a href="{{ route('gallery.show', $gallery->slug) }}">
-                {{ $gallery->title }}
-            </a>
-        </h2>
+@section('content')
+    <div class="container py-4">
+        <h1 class="mb-4">{{ __("gallery::gallery.frontend.title") }}</h1>
 
-        @if($gallery->event_date)
-            <div>{{ $gallery->event_date->format('Y.m.d.') }}</div>
-        @endif
+        @if($galleries->isEmpty())
+            <p>{{ __("gallery::gallery.frontend.no_galleries") }}</p>
+        @else
+            <div class="row">
+                @foreach($galleries as $gallery)
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            @php
+                                $coverImage = $gallery->images()->orderBy('sort_order')->first();
+                            @endphp
 
-        <div>Képek száma: {{ $gallery->images_count }}</div>
+                            <a href="{{ route('gallery.show', $gallery->slug) }}">
+                                <img
+                                    src="{{ $coverImage ? Storage::url($coverImage->image_path) : asset('vendor/laravel-gallery/image/placeholder.jpg') }}"
+                                    class="card-img-top"
+                                    alt="{{ $coverImage->alt ?? $gallery->title }}"
+                                    style="height: 250px; object-fit: cover;"
+                                >
+                            </a>
 
-        @if($gallery->description)
-            <p>{{ $gallery->description }}</p>
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="h5">{{ $gallery->title }}</h2>
+
+                                @if($gallery->description)
+                                    <p class="text-muted">{{ $gallery->description }}</p>
+                                @endif
+
+                                <a href="{{ route('gallery.show', $gallery->slug) }}" class="btn btn-primary mt-auto">
+                                    {{ __("gallery::gallery.frontend.open_gallery") }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    @if($galleries->hasPages())
+                        <div class="mt-4 d-flex justify-content-center">
+                            {{ $galleries->links() }}
+                        </div>
+                    @endif
+                </div>
+            </div>
         @endif
     </div>
-@endforeach
-
-{{ $galleries->links() }}
+@endsection

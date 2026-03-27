@@ -13,7 +13,6 @@
         data-csrf="{{ csrf_token() }}">
     </div>
 
-    <link rel="stylesheet" href="{{ asset('vendor/laravel-gallery/css/gallery-manager.css') }}">
     <link rel="stylesheet" href="https://releases.transloadit.com/uppy/v3.25.2/uppy.min.css">
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>

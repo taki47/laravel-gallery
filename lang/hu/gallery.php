@@ -22,6 +22,14 @@ return [
         "gallery_image_update_error" => "A kép mentése nem sikerült",
     ],
 
+    'frontend' => [
+        'title' => "Galéria",
+        'back' => "Vissza a galériákhoz",
+        "no_image" => "Ebben a galériában még nincsenek képek.",
+        "no_galleries" => "Jelenleg nincs elérhető galéria.",
+        "open_gallery" => "Galéria megnyitása",
+    ],
+
     'admin' => [
         'title' => 'Galériák kezelése',
         'create' => 'Új galéria létrehozása',

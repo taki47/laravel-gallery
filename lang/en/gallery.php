@@ -21,6 +21,14 @@ return [
         'event_date_date' => 'The event date is not a valid date.',
     ],
 
+    'frontend' => [
+        'title' => "Gallery",
+        'back' => "Return to galleries",
+        "no_image" => "There are no images in this gallery yet.",
+        "no_galleries" => "There are no galleries available at the moment.",
+        "open_gallery" => "Open gallery",
+    ],
+
     'admin' => [
         'title' => 'Manage galleries',
         'create' => 'Create new gallery',
@@ -48,7 +56,6 @@ return [
         'public_yes' => 'Yes',
         'public_no' => 'No',
         'confirm_delete' => 'Are you sure?',
-        
         "upload_title" => "Upload image(s)",
         "upload_description" => "Drag image(s) here or browse files",
         "manage_image" => "Images manage",
