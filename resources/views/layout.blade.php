@@ -1,3 +1,12 @@
+{{--
+|--------------------------------------------------------------------------
+| Laravel Gallery - Frontend Layout
+|--------------------------------------------------------------------------
+|
+| Base layout used for public gallery pages.
+|
+--}}
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>

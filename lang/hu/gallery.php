@@ -18,6 +18,9 @@ return [
             'deleted' => 'A kép sikeresen törölve.',
             'update_error' => 'Hiba történt a kép mentése során.',
             'delete_error' => 'Hiba történt a kép törlése során.',
+            'error' => 'Hiba történt.',
+            'load_error' => 'Nem sikerült betölteni a képeket.',
+            'upload_hint' => 'Húzd ide a képeket vagy kattints a feltöltéshez',
         ],
 
         'sort' => [

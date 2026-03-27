@@ -3,6 +3,17 @@
     "description": "Reusable Laravel image gallery package",
     "type": "library",
     "license": "MIT",
+    
+    "keywords": [
+        "laravel",
+        "gallery",
+        "image gallery",
+        "laravel gallery",
+        "image manager"
+    ],
+    
+    "homepage": "https://github.com/taki47/laravel-gallery",
+
     "autoload": {
         "psr-4": {
             "Taki47\\Gallery\\": "src/"
@@ -26,4 +37,5 @@
         "php": "^8.2",
         "illuminate/support": "^10.0|^11.0|^12.0|^13.0"
     }
+    
 }

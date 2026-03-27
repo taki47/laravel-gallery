@@ -18,6 +18,9 @@ return [
             'deleted' => 'Image deleted successfully.',
             'update_error' => 'An error occurred while updating the image.',
             'delete_error' => 'An error occurred while deleting the image.',
+            'error' => 'An error occurred.',
+            'load_error' => 'Failed to load images.',
+            'upload_hint' => 'Drag and drop images here or click to upload',
         ],
 
         'sort' => [

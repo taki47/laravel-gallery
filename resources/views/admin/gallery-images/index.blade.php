@@ -1,3 +1,13 @@
+{{--
+|--------------------------------------------------------------------------
+| Laravel Gallery - Image Manager
+|--------------------------------------------------------------------------
+|
+| Vue powered interface for managing gallery images.
+| Supports upload, sorting and metadata editing.
+|
+--}}
+
 @extends('gallery::admin.layout')
 
 @section('content')

@@ -1,5 +1,17 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Laravel Gallery Routes
+|--------------------------------------------------------------------------
+|
+| Web routes for the Laravel Gallery package.
+| Includes public gallery routes and admin management routes.
+|
+| Package: taki47/laravel-gallery
+|
+*/
+
 use Illuminate\Support\Facades\Route;
 use Taki47\Gallery\Http\Controllers\Admin\GalleryAdminController;
 use Taki47\Gallery\Http\Controllers\Admin\GalleryImageAdminController;

@@ -1,3 +1,12 @@
+{{--
+|--------------------------------------------------------------------------
+| Laravel Gallery - Gallery List
+|--------------------------------------------------------------------------
+|
+| Displays the list of public galleries.
+|
+--}}
+
 @extends('gallery::layout')
 
 @section('content')

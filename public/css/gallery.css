@@ -1,3 +1,23 @@
+/*
+|--------------------------------------------------------------------------
+| Laravel Gallery - Frontend Styles
+|--------------------------------------------------------------------------
+|
+| Styles for the public gallery interface.
+| Includes gallery cards, image hover effects and lightbox content.
+|
+| Package: taki47/laravel-gallery
+| Author: Lajos Takács
+| Website: https://takiwebneked.hu
+| Repository: https://github.com/taki47/laravel-gallery
+|
+*/
+
+
+/* ======================================
+   Gallery card
+====================================== */
+
 .gallery-card {
     border: 0;
     border-radius: 18px;
@@ -13,9 +33,15 @@
     box-shadow: 0 16px 36px rgba(0,0,0,0.12);
 }
 
+
+/* ======================================
+   Gallery image link and image
+====================================== */
+
 .gallery-image-link {
     display: block;
     overflow: hidden;
+    position: relative;
 }
 
 .gallery-image {
@@ -28,46 +54,6 @@
 
 .gallery-image-link:hover .gallery-image {
     transform: scale(1.04);
-}
-
-.gallery-meta {
-    padding: 1rem 1rem 1.2rem;
-}
-
-.gallery-caption {
-    font-size: 0.98rem;
-    font-weight: 600;
-    margin-bottom: 0.35rem;
-    color: #222;
-}
-
-.gallery-alt {
-    font-size: 0.88rem;
-    color: #6c757d;
-    margin-bottom: 0;
-}
-
-.glightbox-clean .gslide-description {
-    background: rgba(0,0,0,0.72);
-    border-radius: 14px;
-    padding: 14px 16px;
-}
-
-.glightbox-desc .lightbox-caption {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    color: #fff;
-}
-
-.glightbox-desc .lightbox-alt {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.82);
-    margin: 0;
-}
-
-.gallery-image-link {
-    position: relative;
 }
 
 .gallery-image-link::after {
@@ -87,4 +73,50 @@
 
 .gallery-image-link:hover::after {
     opacity: 1;
+}
+
+
+/* ======================================
+   Gallery meta content
+====================================== */
+
+.gallery-meta {
+    padding: 1rem 1rem 1.2rem;
+}
+
+.gallery-caption {
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: #222;
+}
+
+.gallery-alt {
+    font-size: 0.88rem;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+
+/* ======================================
+   Lightbox description
+====================================== */
+
+.glightbox-clean .gslide-description {
+    background: rgba(0,0,0,0.72);
+    border-radius: 14px;
+    padding: 14px 16px;
+}
+
+.glightbox-desc .lightbox-caption {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #fff;
+}
+
+.glightbox-desc .lightbox-alt {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.82);
+    margin: 0;
 }

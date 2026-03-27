@@ -1,12 +1,40 @@
+/*
+|--------------------------------------------------------------------------
+| Laravel Gallery - Admin Image Manager
+|--------------------------------------------------------------------------
+|
+| Handles the gallery administration interface:
+| - image uploads (Uppy)
+| - drag & drop sorting
+| - metadata editing
+| - image deletion
+| - toast notifications
+|
+| Package: taki47/laravel-gallery
+| Author: Lajos Takács
+| Website: https://takiwebneked.hu
+| Repository: https://github.com/taki47/laravel-gallery
+|
+*/
+
 (function () {
+    /* ======================================
+       Root element lookup
+    ====================================== */
     const root = document.getElementById('laravel-gallery-manager');
 
     if (!root) {
         return;
     }
 
-    const translations = window.GalleryLang || '{}';
+    /* ======================================
+       Translations from global scope
+    ====================================== */
+    const translations = window.GalleryLang ?? {};
 
+    /* ======================================
+       Vue helpers
+    ====================================== */
     const {
         createApp,
         nextTick
@@ -15,7 +43,9 @@
     createApp({
         data() {
             return {
-                galleryId: root.dataset.galleryId,
+                /* ======================================
+                   Configuration from data attributes
+                ====================================== */
                 loadUrl: root.dataset.loadUrl,
                 storeUrl: root.dataset.storeUrl,
                 sortUrl: root.dataset.sortUrl,
@@ -23,12 +53,18 @@
                 csrf: root.dataset.csrf,
                 lang: translations,
 
+                /* ======================================
+                   Component state
+                ====================================== */
                 images: [],
                 loading: false,
                 savingOrder: false,
                 saveTimers: {},
                 uppy: null,
                 
+                /* ======================================
+                   Toast notification state
+                ====================================== */
                 toast: {
                     visible: false,
                     message: '',
@@ -36,6 +72,9 @@
                 },
                 toastTimeout: null,
 
+                /* ======================================
+                   Confirmation dialog state
+                ====================================== */
                 confirmDialog: {
                     visible: false,
                     message: "",
@@ -45,15 +84,24 @@
         },
 
         mounted() {
+            /* ======================================
+               Initial component setup
+            ====================================== */
             this.loadImages();
             this.initUppy();
         },
 
         methods: {
+            /* ======================================
+               Back navigation
+            ====================================== */
             goBack() {
                 window.location.href = this.backUrl;
             },
 
+            /* ======================================
+               Confirmation dialog handlers
+            ====================================== */
             confirmAction(message, callback) {
                 this.confirmDialog.message = message;
                 this.confirmDialog.onConfirm = callback;
@@ -71,6 +119,9 @@
                 this.confirmDialog.visible = false;
             },
 
+            /* ======================================
+               Toast notification handler
+            ====================================== */
             showToast(message, type = 'success' ) {
                 if ( this.toastTimeout )
                     clearTimeout(this.toastTimeout);
@@ -84,6 +135,9 @@
                 }, 3000);
             },
 
+            /* ======================================
+               Load gallery images from backend
+            ====================================== */
             async loadImages() {
                 this.loading = true;
 
@@ -95,7 +149,7 @@
                     });
 
                     if (!response.ok) {
-                        throw new Error('Nem sikerült betölteni a képeket.');
+                        throw new Error(this.lang.messages.image.load_error);
                     }
 
                     const data = await response.json();
@@ -111,12 +165,16 @@
                     this.initSortable();
                 } catch (error) {
                     console.error(error);
-                    alert(error.message || 'Hiba történt.');
+                    const errorTxt = error.message || this.lang.messages.error;
+                    this.showToast(errorTxt, 'error');
                 } finally {
                     this.loading = false;
                 }
             },
 
+            /* ======================================
+               Initialize Uppy uploader
+            ====================================== */
             initUppy() {
                 this.uppy = new Uppy.Uppy({
                     autoProceed: true,
@@ -129,7 +187,7 @@
                     inline: true,
                     target: '#uppy-dashboard',
                     proudlyDisplayPoweredByUppy: false,
-                    note: 'Húzd ide a képeket vagy kattints',
+                    note: this.lang.messages.image.upload_hint,
                     height: 320,
                 });
 
@@ -152,6 +210,9 @@
                 });
             },
 
+            /* ======================================
+               Initialize drag and drop sorting
+            ====================================== */
             initSortable() {
                 const grid = this.$refs.imagesGrid;
 
@@ -177,6 +238,9 @@
                 grid.dataset.sortableInitialized = '1';
             },
 
+            /* ======================================
+               Persist new image order
+            ====================================== */
             async saveOrder() {
                 this.savingOrder = true;
 
@@ -204,16 +268,19 @@
                         throw new Error(this.lang.messages.sort.error);
                     }
 
-                    this.showToast(result.message || this.lang.messages.sort.error);
+                    this.showToast(result.message);
                 } catch (error) {
                     console.error(error);
-                    errorTxt = error.message || this.lang.messages.sort.error;
+                    const errorTxt = error.message || this.lang.messages.sort.error;
                     this.showToast(errorTxt, 'error');
                 } finally {
                     this.savingOrder = false;
                 }
             },
 
+            /* ======================================
+               Queue metadata save with debounce
+            ====================================== */
             queueSave(image) {
                 if (this.saveTimers[image.id]) {
                     clearTimeout(this.saveTimers[image.id]);
@@ -224,6 +291,9 @@
                 }, 700);
             },
 
+            /* ======================================
+               Save image metadata
+            ====================================== */
             async saveImage(image) {
                 image.isSaving = true;
                 image.error = null;
@@ -251,20 +321,26 @@
                     this.showToast(result.message || this.lang.messages.image.update_error);
                 } catch (error) {
                     console.error(error);
-                    errorTxt = error.message || this.lang.messages.image.update_error;
+                    const errorTxt = error.message || this.lang.messages.image.update_error;
                     this.showToast(errorTxt, 'error');
                 } finally {
                     image.isSaving = false;
                 }
             },
 
+            /* ======================================
+               Start delete flow with confirmation
+            ====================================== */
             deleteImage(image) {
                 this.confirmAction(this.lang.admin.confirm.delete_image, () => {
-                    this.preformDelete(image);
+                    this.performDelete(image);
                 });
             },
 
-            async preformDelete(image) {
+            /* ======================================
+               Delete image from backend
+            ====================================== */
+            async performDelete(image) {
                 image.isDeleting = true;
                 image.error = null;
 
@@ -287,7 +363,7 @@
                     this.showToast(result.message || this.lang.messages.image.delete_error);
                 } catch (error) {
                     console.error(error);
-                    image.error = error.message || this.lang.messages.image.delet_error;
+                    image.error = error.message || this.lang.messages.image.delete_error;
                     this.showToast(image.error, 'error');
                 } finally {
                     image.isDeleting = false;
@@ -295,6 +371,9 @@
             }
         },
 
+        /* ======================================
+           Inline Vue template
+        ====================================== */
         template: `
             <div class="gallery-manager-wrapper">
                 <transition name="modal-fade">

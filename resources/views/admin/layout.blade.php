@@ -1,3 +1,13 @@
+{{--
+|--------------------------------------------------------------------------
+| Laravel Gallery - Admin Layout
+|--------------------------------------------------------------------------
+|
+| Base layout for the gallery administration interface.
+| Provides structure, styles and scripts for admin pages.
+|
+--}}
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>

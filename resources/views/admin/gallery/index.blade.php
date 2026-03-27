@@ -1,3 +1,13 @@
+{{--
+|--------------------------------------------------------------------------
+| Laravel Gallery - Admin Gallery List
+|--------------------------------------------------------------------------
+|
+| Displays the list of galleries with pagination
+| and management actions.
+|
+--}}
+
 @extends('gallery::admin.layout')
 
 @section('content')

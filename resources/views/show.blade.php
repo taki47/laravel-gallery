@@ -1,3 +1,13 @@
+{{--
+|--------------------------------------------------------------------------
+| Laravel Gallery - Gallery View
+|--------------------------------------------------------------------------
+|
+| Displays images inside a selected gallery.
+| Includes lightbox support.
+|
+--}}
+
 @extends('gallery::layout')
 
 @section('content')

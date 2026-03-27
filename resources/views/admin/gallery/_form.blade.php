@@ -1,3 +1,12 @@
+{{--
+|--------------------------------------------------------------------------
+| Laravel Gallery - Gallery Form Partial
+|--------------------------------------------------------------------------
+|
+| Shared form fields used for creating and editing galleries.
+|
+--}}
+
 <div class="form-group">
     <label class="form-label" for="title">
         {{ __('gallery::gallery.admin.fields.title') }}

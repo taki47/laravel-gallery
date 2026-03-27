@@ -1,3 +1,12 @@
+{{--
+|--------------------------------------------------------------------------
+| Laravel Gallery - Edit Gallery
+|--------------------------------------------------------------------------
+|
+| Form for editing an existing gallery.
+|
+--}}
+
 @extends('gallery::admin.layout')
 
 @section('content')

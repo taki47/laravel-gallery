@@ -1,3 +1,13 @@
+{{--
+|--------------------------------------------------------------------------
+| Laravel Gallery - Bootstrap Pagination
+|--------------------------------------------------------------------------
+|
+| Custom pagination view used by the gallery frontend.
+| Based on Laravel's Bootstrap pagination template.
+|
+--}}
+
 @if ($paginator->hasPages())
 <nav>
     <div class="pagination-wrapper">

@@ -1,3 +1,12 @@
+{{--
+|--------------------------------------------------------------------------
+| Laravel Gallery - Create Gallery
+|--------------------------------------------------------------------------
+|
+| Form for creating a new gallery in the admin interface.
+|
+--}}
+
 @extends('gallery::admin.layout')
 
 @section('content')
