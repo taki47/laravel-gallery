@@ -86,7 +86,7 @@
     </table>
 
     <div style="margin-top: 20px;">
-        {{ $galleries->links() }}
+        {{ $galleries->links('gallery::pagination.bootstrap') }}
     </div>
 
     <div id="deleteModal" class="modal">

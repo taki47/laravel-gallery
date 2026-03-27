@@ -44,7 +44,7 @@
                 <div class="col-12">
                     @if($galleries->hasPages())
                         <div class="mt-4 d-flex justify-content-center">
-                            {{ $galleries->links() }}
+                            {{ $galleries->links('gallery::pagination.bootstrap') }}
                         </div>
                     @endif
                 </div>

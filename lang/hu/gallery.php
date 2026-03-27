@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'pagination' => [
+        'showing' => 'Megjelenítve',
+    ],
 
     'messages' => [
         'gallery' => [
